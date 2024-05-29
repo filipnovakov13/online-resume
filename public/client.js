@@ -1,6 +1,21 @@
-const modeToggle = document.getElementsByClassName('theme-button')[0];
+// selectors        
+const modeToggle = document.querySelector('.theme-button');
 
-modeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
+// state
+const theme = localStorage.getItem('theme');
+
+// on mount
+theme && document.body.classList.add(theme);
+
+// handlers
+const handleThemeToggle = () => { 
     document.body.classList.toggle('dark-mode');
-});
+    if (document.body.classList.contains('dark-mode')) {    
+        localStorage.setItem('theme', 'dark-mode')
+    } else {    
+        localStorage.removeItem('theme');
+    }
+};
+
+// events
+modeToggle.addEventListener('click', handleThemeToggle);
