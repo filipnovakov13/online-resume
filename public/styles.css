@@ -68,9 +68,9 @@
 .hidden {   
     opacity: 0;
     filter: blur(.2rem);
-    transition: opacity .5s ease-out,   
-                filter .5s ease-out,  
-                transform .4s ease-out;
+    transition: opacity .4s ease-out,   
+                filter .4s ease-out,  
+                transform .2s ease-out;
     transform: translateX(-100%);
 }
 
