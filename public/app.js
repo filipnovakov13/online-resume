@@ -4,14 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const observer = new IntersectionObserver((entries) => {    
         entries.forEach((entry, index) => {    
-            console.log(entry)
             if (entry.isIntersecting) { 
                 setTimeout(() => {    
                 entry.target.classList.add('show');
+                observer.unobserve(entry.target);
             }, index * 50);
-            } else {    
-                entry.target.classList.remove('show');
-            }   
+            }  
         });
     });
     
