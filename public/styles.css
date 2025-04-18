@@ -12,6 +12,7 @@
     --underscore-color: #ad7fa8;
     --h1-color: #ef2929;
     --h2-color: #34e2e2;
+    --h4-color: #81d4fa;
     --em-color: #8ae234;
     --shadow-medium:
     0px 0.4px 0.4px hsl(var(--shadow-color) / 0.45),
@@ -37,6 +38,7 @@
     --underscore-color: #ad7fa8;
     --h1-color: #ef2929;
     --h2-color: #34e2e2;
+    --h4-color: #4dd0e1;
     --em-color: #8ae234;
 
 }
@@ -47,6 +49,7 @@
     --underscore-color: #75507b;
     --h1-color: #cc0000;
     --h2-color: #06989a;
+    --h4-color: #81d4fa;
     --em-color: #4e9a06;
 }
 
@@ -103,21 +106,15 @@ body {
     justify-self: center;
 }
 
-.contact-info p:nth-child(2) {    
-    transition-delay: 0ms;
+@mixin contactInfoDelays($start: 2, $end: 5, $delayStep: 50ms) {
+    @for $i from $start through $end {
+        .contact-info p:nth-child(#{$i}) {
+            transition-delay: (($i - $start) * $delayStep);
+        }
+    }
 }
 
-.contact-info p:nth-child(3) {    
-    transition-delay: 50ms;
-}
-
-.contact-info p:nth-child(4) {    
-    transition-delay: 100ms;
-}
-
-.contact-info p:nth-child(5) {    
-    transition-delay: 150ms;
-}
+@include contactInfoDelays();
 
 .skills {
     display: flex;
@@ -178,8 +175,13 @@ h2 {
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     color: var(--h1-color);
+}
+
+h4 {
+    font-size: 1.2rem;
+    color: var(--h4-color);
 }
 
 em {
