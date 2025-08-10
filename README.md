@@ -1,1 +1,1 @@
-[Link to my online resume](https://filipnovakov.vercel.app/)
+<a href="https://filipnovakov.vercel.app/" target="_blank">Link to my online resume</a>
